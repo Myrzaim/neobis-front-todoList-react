@@ -1,8 +1,10 @@
 import React from "react";
+import { useContext } from "react";
+import { taskContext } from "../../Context/TodoContext";
 import "./TodoItem.css";
 
 const TodoItem = ({ obj }) => {
-  console.log({ obj });
+  const { deleteTask } = useContext(taskContext);
   return (
     <>
       <div className="list-box">
@@ -29,7 +31,9 @@ const TodoItem = ({ obj }) => {
           <button className="upd-btn" id={obj.id}>
             Edit
           </button>
-          <button className="del-btn">Delete</button>
+          <button className="del-btn" onClick={() => deleteTask(`${obj.id}`)}>
+            Delete
+          </button>
         </li>
       </div>
     </>

@@ -30,7 +30,7 @@ const TodoContextProvider = ({ children }) => {
     }
   }
 
-    // read
+  // read
   async function readTask() {
     const { data } = await axios(API);
     dispatch({
@@ -39,13 +39,11 @@ const TodoContextProvider = ({ children }) => {
     });
   }
 
-    
-      // delete
+  // delete
   async function deleteTask(id) {
     try {
-      await axios.delete(`${API}/${id}`);
-      readTask();
-      
+      await axios.delete(`${API}/${id}`).then(readTask());
+      //   return readTask();
     } catch (error) {
       return error;
     }
