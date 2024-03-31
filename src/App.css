@@ -1,28 +1,6 @@
 .App{
-width: 40rem;
-margin: auto;
-font-family: "DM Serif Text", serif;
-font-weight: 400;
-}
-h3{
-  display: inline-block;
-  font-size: 32px;
-  font-weight: 800;
-  margin-bottom: 0;
-}
-.h4{
-margin-top: 0;
-color:	#707070 ;
-}
-p{
-  margin: 0 0 0.5rem 0;
-}
-.name{
-font-size: 32px;
-background: none;
-width: 12rem;
-border: none;
-}
-.name:focus{
-  outline: none;
+    width: 40rem;
+    margin: auto;
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
 }
