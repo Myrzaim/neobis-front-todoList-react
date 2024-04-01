@@ -12,6 +12,7 @@ const CategoryForm = () => {
   let selectedCategory;
 
   function handleAddBtn(e) {
+    e.preventDefault();
     if (!task.trim()) {
       alert("Some inputs are empty!");
       return;

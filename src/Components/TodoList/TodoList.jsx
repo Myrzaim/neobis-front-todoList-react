@@ -14,13 +14,13 @@ const TodoList = () => {
   return (
     <>
       <div className="product-list">
-      {taskArr
-        ? taskArr.map((item) => {
-            return <TodoItem obj={item} />;
-          })
-        : null}
-   
-   </div>   </>
+        {taskArr
+          ? taskArr.map((item) => {
+              return <TodoItem obj={item} />;
+            })
+          : null}
+      </div>
+    </>
   );
 };
 

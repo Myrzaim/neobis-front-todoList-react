@@ -42,16 +42,24 @@ const TodoContextProvider = ({ children }) => {
   // delete
   async function deleteTask(id) {
     try {
-      await axios.delete(`${API}/${id}`).then(readTask());
-      //   return readTask();
+      await axios.delete(`${API}/${id}`);
+      readTask();
     } catch (error) {
       return error;
     }
   }
+
+  // edit
+  async function editTask(id, editedObj) {
+    await axios.patch(`${API}/${id}`, editedObj);
+    readTask();
+  }
+
   const cloud = {
     addTask,
     readTask,
     deleteTask,
+    editTask,
     taskArr: state.todos,
   };
   return <taskContext.Provider value={cloud}>{children}</taskContext.Provider>;

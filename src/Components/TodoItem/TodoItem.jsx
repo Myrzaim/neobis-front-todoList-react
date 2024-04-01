@@ -1,10 +1,34 @@
 import React from "react";
+import { useState } from "react";
 import { useContext } from "react";
 import { taskContext } from "../../Context/TodoContext";
 import "./TodoItem.css";
 
 const TodoItem = ({ obj }) => {
-  const { deleteTask } = useContext(taskContext);
+
+  const { deleteTask, editTask } = useContext(taskContext);
+  const [changeTask, setChangeTask] = useState(obj);
+
+  function handleChange(e) {
+  let obj = {
+    ...changeTask,
+    [e.target.title]: e.target.value,
+  };
+    setChangeTask(obj);
+    
+  }
+  function handleSave(e) {
+    e.preventDefault(); 
+    if (
+      !changeTask.title.trim()
+     ) {
+      alert("Заполните поле!");
+      return;
+    }
+    editTask(obj.id, changeTask);
+  }
+    
+  
   return (
     <>
       <div className="list-box">
@@ -24,11 +48,12 @@ const TodoItem = ({ obj }) => {
           <input
             type="text"
             className={`list-title ${obj.done ? "lined" : ""}`}
-            value={obj.title}
+            value={changeTask.title}
+            onChange={(e) => handleChange(e)}
             id="update_todo"
             readonly
           />
-          <button className="upd-btn" id={obj.id}>
+          <button className="upd-btn"  onClick={(e) => handleSave(e)} id={obj.id}>
             Edit
           </button>
           <button className="del-btn" onClick={() => deleteTask(`${obj.id}`)}>
