@@ -1,24 +1,16 @@
-import logo from './logo.svg';
+import CategoryForm from "./Components/CateforyForm/CategoryForm";
+import TodoList from "./Components/TodoList/TodoList";
+import TodoContextProvider from "./Context/TodoContext";
 import './App.css';
-
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <TodoContextProvider>
+      <CategoryForm />
+      <TodoList />
+      </TodoContextProvider>
+      </div>
   );
 }
 
