@@ -1,26 +1,16 @@
-import React from "react";
-import { useEffect } from "react";
-import { useContext } from "react";
-import { taskContext } from "../../Context/TodoContext";
+import { useSelector } from "react-redux";
 import TodoItem from "../TodoItem/TodoItem";
-import "./TodoList.css";
 
 const TodoList = () => {
-  const { taskArr, readTask } = useContext(taskContext);
-  useEffect(() => {
-    readTask();
-  }, []);
+  const todos = useSelector((state) => state.todos.todos);
+  // console.log(todos);
 
   return (
-    <>
-      <div className="product-list">
-        {taskArr
-          ? taskArr.map((item) => {
-              return <TodoItem obj={item} />;
-            })
-          : null}
-      </div>
-    </>
+    <ul>
+      {todos.map((todo) => (
+        <TodoItem key={todo.id} {...todo} />
+      ))}
+    </ul>
   );
 };
 

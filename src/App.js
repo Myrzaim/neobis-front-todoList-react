@@ -1,16 +1,34 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import CategoryForm from "./Components/CateforyForm/CategoryForm";
+import { addTodo } from "./store/todoSlice";
 import TodoList from "./Components/TodoList/TodoList";
-import TodoContextProvider from "./Context/TodoContext";
-import './App.css';
-function App() {
+import "./App.css";
 
+function App() {
+  const [text, setText] = useState("");
+  const [category, setCategory] = useState("business");
+
+  const dispatch = useDispatch();
+
+  const handleAction = () => {
+    if (text.trim().length) {
+      dispatch(addTodo({ text, category }));
+      setText("");
+      setCategory("");
+    }
+  };
   return (
     <div className="App">
-     <TodoContextProvider>
-      <CategoryForm />
+      <CategoryForm
+        value={text}
+        updateText={setText}
+        handleAction={handleAction}
+        category={category}
+        updateCategory={setCategory}
+      />
       <TodoList />
-      </TodoContextProvider>
-      </div>
+    </div>
   );
 }
 
