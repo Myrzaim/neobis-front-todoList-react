@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# React To-Do Application
+## Описание
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Это простое приложение для выполнения задач на основе React, созданное с использованием функций CRUD (Создание, чтение, обновление, удаление) и использующее Redux Toolkit для управления состоянием. Приложение позволяет пользователям управлять своими задачами, добавляя, удаляя, обновляя и помечая их как выполненные. Он также установлен на Vercel для удобства доступа.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Функции:
+ **Добавление задач**
+    
+  - Реализовать возможность добавления задачи у которой есть поле: Название задачи, после создания задачи,
+    она должна отобразиться на главном экране в виде списка.Дополнительно как показано в видео, можете добавить категории(“Business” & “Personal”).
+    
+ **Редактирование**
+    Должна быть реализована возможность редактировать следующие элементы:
+  - Редактирование названия задачи
+  - Редактирование порядка общего списка задач на главном экране(Опционально)
+    
+ **Удаление задачи**
+    
+  - Реализовать возможность удаления задачи, после его удаления задача должна пропасть из общего списка
+    задач на главном экране
 
-### `npm start`
+ **Выполнено**
+    
+  - Добавить функционал позволяющий отметить задачу как выполненную, после рядом с названием задачи
+    на главном экране должна появиться галочка(toggle).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ФАЙЛОВАЯ СТРУКТУРА:
+  - src: содержит исходный код приложения
+  - Components: компоненты React
+  - Components: функциональные модули приложения (например, добавление/редактирование задач)
+  - store: файлы для управления состоянием с помощью Redux Toolkit
+  - public: содержит файлы, доступные напрямую из браузера
+  - package.json: файл с зависимостями и скриптами проекта
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## УСТАНОВКА
+- Склонируйте репозиторий: git clone https://github.com/Myrzaim/neobis-front-todoList-react.git
+- Перейдите в папку проекта: cd neobis-front-todoList-react
+- Установите зависимости: npm install или yarn install
+- Запустите приложение: npm start или yarn start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Развертывание на Vercel
+Это приложение может быть легко развернуто на платформе Vercel. Просто следуйте этим шагам:
+1. Создайте аккаунт на vercel.com, если у вас его еще нет.
+2. Установите Vercel CLI на вашем компьютере.
+3. В корневой папке проекта выполните команду vercel login, чтобы войти в ваш аккаунт Vercel через CLI.
+4. Затем выполните команду vercel, чтобы развернуть проект. Следуйте инструкциям, чтобы настроить ваш проект для развертывания.
+5. После завершения развертывания, вы получите URL вашего приложения, который можно использовать для доступа к нему в Интернете.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## АВТОР:
+Этот TODO APPLICATION был сделан Мырзайым на стажировке в Neobis club
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## КОНТАКТЫ:
+э-почта: mimetalieva@gmail.com телефон: +996700171297
