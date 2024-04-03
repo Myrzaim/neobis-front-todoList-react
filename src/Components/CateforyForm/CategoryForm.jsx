@@ -1,12 +1,21 @@
 import "./CategoryForm.css";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../../store/todoSlice";
 
-const CategoryForm = ({
-  value,
-  updateText,
-  handleAction,
-  category,
-  updateCategory,
-}) => {
+const CategoryForm = ({}) => {
+  const [text, setText] = useState("");
+  const [category, setCategory] = useState("business");
+
+  const dispatch = useDispatch();
+
+  const handleAction = () => {
+    if (text.trim().length) {
+      dispatch(addTodo({ text, category }));
+      setText("");
+      setCategory("");
+    }
+  };
   return (
     <>
       <h3>Whats'up,</h3>
@@ -22,8 +31,8 @@ const CategoryForm = ({
         <input
           className="addTodo"
           placeholer="New todo"
-          value={value}
-          onChange={(e) => updateText(e.target.value)}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
         />
         <div className="category">
           <div className="category__box">
@@ -31,7 +40,7 @@ const CategoryForm = ({
             <input
               type="radio"
               checked={category === "business"}
-              onChange={(e) => updateCategory(e.target.value)}
+              onChange={(e) => setCategory(e.target.value)}
               value="business"
               name="radio-buttons"
               inputProps={{ "aria-label": "A" }}
@@ -42,7 +51,7 @@ const CategoryForm = ({
             <input
               type="radio"
               checked={category === "personal"}
-              onChange={(e) => updateCategory(e.target.value)}
+              onChange={(e) => setCategory(e.target.value)}
               value="personal"
               name="radio-buttons"
               inputProps={{ "aria-label": "B" }}
