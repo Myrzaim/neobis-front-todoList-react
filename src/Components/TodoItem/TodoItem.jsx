@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { toggleComplete, removeTodo, updateTodo } from "../../store/todoSlice";
+import "./TodoItem.css";
 
 const TodoItem = ({ id, text, completed, category }) => {
   const dispatch = useDispatch();
@@ -14,21 +15,26 @@ const TodoItem = ({ id, text, completed, category }) => {
 
   return (
     <li>
-      <label>{category} </label>
+      <p>{category} </p>
       <input
         type="checkbox"
         checked={completed}
         onChange={() => dispatch(toggleComplete({ id }))}
       />
       <input
+        className="list-title"
         ref={inputRef}
         id={id}
         value={text}
         readOnly={readOnlyCondition}
         onChange={() => dispatch(updateTodo({ id }))}
       />
-      <button onClick={() => dispatch(removeTodo({ id }))}>Delete</button>
-      <button onClick={() => focusToInput({ id })}>Update</button>
+      <button className="upd-btn" onClick={() => focusToInput({ id })}>
+        Edit
+      </button>
+      <button className="del-btn" onClick={() => dispatch(removeTodo({ id }))}>
+        Delete
+      </button>
     </li>
   );
 };

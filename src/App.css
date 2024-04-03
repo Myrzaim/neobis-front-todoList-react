@@ -1,5 +1,11 @@
 .App {
-    text-align: center;
+    width: 40rem;
+    margin: auto;
+    margin-top: 1rem;
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+  
   }
   
   ul {

@@ -1,5 +1,4 @@
-// import Radio from "@mui/material/Radio";
-// import { useState } from "react";
+import "./CategoryForm.css";
 
 const CategoryForm = ({
   value,
@@ -9,34 +8,52 @@ const CategoryForm = ({
   updateCategory,
 }) => {
   return (
-    <label>
+    <>
+      <h3>Whats'up,</h3>
       <input
-        placeholer="new todo"
-        value={value}
-        onChange={(e) => updateText(e.target.value)}
+        type="text"
+        placeholder="Name here"
+        value="Myrzaim"
+        className="name"
       />
-      <div>
-        <label>Business</label>
+      <h4>CREATE A TO DO</h4>
+      <p>What's on your to do list?</p>
+      <label>
         <input
-          type="radio"
-          checked={category === "business"}
-          onChange={(e) => updateCategory(e.target.value)}
-          value="business"
-          name="radio-buttons"
-          inputProps={{ "aria-label": "A" }}
+          className="addTodo"
+          placeholer="New todo"
+          value={value}
+          onChange={(e) => updateText(e.target.value)}
         />
-        <label>Personal</label>
-        <input
-          type="radio"
-          checked={category === "personal"}
-          onChange={(e) => updateCategory(e.target.value)}
-          value="personal"
-          name="radio-buttons"
-          inputProps={{ "aria-label": "B" }}
-        />
-      </div>
-      <button onClick={handleAction}>Add todo</button>
-    </label>
+        <div className="category">
+          <div className="category__box">
+            <p>Business</p>
+            <input
+              type="radio"
+              checked={category === "business"}
+              onChange={(e) => updateCategory(e.target.value)}
+              value="business"
+              name="radio-buttons"
+              inputProps={{ "aria-label": "A" }}
+            />
+          </div>
+          <div className="category__box">
+            <p>Personal</p>
+            <input
+              type="radio"
+              checked={category === "personal"}
+              onChange={(e) => updateCategory(e.target.value)}
+              value="personal"
+              name="radio-buttons"
+              inputProps={{ "aria-label": "B" }}
+            />
+          </div>
+        </div>
+        <button className="add-btn" onClick={handleAction}>
+          Add todo
+        </button>
+      </label>
+    </>
   );
 };
 export default CategoryForm;
