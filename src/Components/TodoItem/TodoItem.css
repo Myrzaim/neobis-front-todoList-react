@@ -1,0 +1,47 @@
+.list-title{
+    font-size: 24px;
+    background: none;
+    width: 25rem;
+    border: none;
+    margin-left: 5rem;
+  }
+  .del-btn{
+    width: 4rem;
+    height: 2.5rem;
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 18px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    
+  }
+  .del-btn:hover {
+    background-color: rgb(239, 111, 111); 
+  }
+  .upd-btn{
+    width: 3rem;
+    height: 2.5rem;
+    color: white;
+    background-color: rgb(227, 11, 144);
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 18px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+  .upd-btn:hover {
+    background-color:  rgb(238, 71, 174);
+  }
+
+
+input[type='checkbox'] {
+    height: 3rem;
+    width: 3rem;
+}
+p{
+    font-size: 24px;  
+}
