@@ -1,6 +1,23 @@
-.App{
-    width: 40rem;
-    margin: auto;
-    font-family: "DM Serif Text", serif;
-    font-weight: 400;
-}
+.App {
+    text-align: center;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  input:checked + input {
+    text-decoration: line-through;
+  }
+  
+  span:last-child {
+    color: red;
+    cursor: pointer;
+  }

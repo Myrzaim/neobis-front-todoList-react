@@ -1,105 +1,42 @@
-import React, { useContext } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { taskContext } from "../../Context/TodoContext";
-import "./CategoryForm.css";
+// import Radio from "@mui/material/Radio";
+// import { useState } from "react";
 
-const CategoryForm = () => {
-  const { addTask } = useContext(taskContext);
-  const [task, setTask] = useState("");
-  // const [selectedOption, setSelectedOption] = useState("");
-
-  let selectedCategory;
-
-  function handleAddBtn(e) {
-    e.preventDefault();
-    if (!task.trim()) {
-      alert("Some inputs are empty!");
-      return;
-    }
-
-    let todoItem = {
-      id: Date.now(),
-      title: task,
-      category: "radio-" + selectedCategory,
-      done: false,
-    };
-
-    addTask(todoItem);
-    setTask("");
-    selectedCategory = "";
-  }
-
-  function onValueChange(cat) {
-    console.log(cat.target.value);
-    selectedCategory = cat.target.value;
-  }
-
+const CategoryForm = ({
+  value,
+  updateText,
+  handleAction,
+  category,
+  updateCategory,
+}) => {
   return (
-    <>
-      <div className="container">
-        <h3>Whats'up,</h3>
+    <label>
+      <input
+        placeholer="new todo"
+        value={value}
+        onChange={(e) => updateText(e.target.value)}
+      />
+      <div>
+        <label>Business</label>
         <input
-          type="text"
-          placeholder="Name here"
-          value="Myrzaim"
-          className="name"
+          type="radio"
+          checked={category === "business"}
+          onChange={(e) => updateCategory(e.target.value)}
+          value="business"
+          name="radio-buttons"
+          inputProps={{ "aria-label": "A" }}
         />
-        <h4>CREATE A TO DO</h4>
-        <p>What's on your to do list?</p>
-        <form>
-          <input
-            type={task}
-            placeholder="e.m. milk"
-            id="add-todo"
-            onChange={(e) => setTask(e.target.value)}
-          />
-          <p>Pick a category</p>
-          <div className="category">
-            <div className="category-box">
-              <div className="radio">
-                <input
-                  type="radio"
-                  id="check-bussines"
-                  name="myCheckbox"
-                  defaultValue={"business"}
-                  onChange={onValueChange}
-                />
-                <label
-                  className="radio-business"
-                  htmlFor="check-bussines"
-                ></label>
-              </div>
-              <p>Bussines</p>
-            </div>
-            <div className="category-box">
-              <div className="radio">
-                <input
-                  type="radio"
-                  id="check-personal"
-                  name="myCheckbox"
-                  defaultValue={"personal"}
-                  onChange={onValueChange}
-                />
-                <label
-                  className="radio-personal"
-                  htmlFor="check-personal"
-                ></label>
-              </div>
-              <p>Personal</p>
-            </div>
-          </div>
-          <button
-            type="submit"
-            className="add-btn"
-            onClick={(e) => handleAddBtn(e)}
-          >
-            Add todo
-          </button>
-        </form>
+        <label>Personal</label>
+        <input
+          type="radio"
+          checked={category === "personal"}
+          onChange={(e) => updateCategory(e.target.value)}
+          value="personal"
+          name="radio-buttons"
+          inputProps={{ "aria-label": "B" }}
+        />
       </div>
-    </>
+      <button onClick={handleAction}>Add todo</button>
+    </label>
   );
 };
-
 export default CategoryForm;
